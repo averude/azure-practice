@@ -1,0 +1,3 @@
+rootProject.name = 'azure-practice'
+include 'az-204-lab-1'
+

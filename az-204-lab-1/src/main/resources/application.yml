@@ -1,0 +1,4 @@
+azure:
+  blob:
+    connectionString: ${STORAGE_ACCOUNT_CONNECTION_STRING}
+    containerName: ${CONTAINER_NAME}

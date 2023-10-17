@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'com.microsoft.azure.azurewebapp' version "${azureWebAppPluginVersion}"
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'org.averude'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+azurewebapp {
+    subscription = System.getenv("AZURE_SUBSCRIPTION_ID")
+    resourceGroup = System.getenv("AZURE_RESOURCE_GROUP")
+    appName = System.getenv("AZURE_APP_NAME")
+    pricingTier = System.getenv("AZURE_SKU")
+    region = System.getenv("AZURE_REGION")
+    runtime {
+        os = 'Linux'
+        webContainer = 'Java SE'
+        javaVersion = 'Java 17'
+    }
+    auth {
+        type = 'azure_cli'
+    }
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation("com.azure:azure-storage-blob:${azureStorageBlobSDKVersion}")
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+}
