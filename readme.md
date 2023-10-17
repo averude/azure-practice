@@ -1,0 +1,1 @@
+The labs are taken from here https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure/tree/master/Instructions/Labs, but the tasks rewrote with use of Java instead of .NET
